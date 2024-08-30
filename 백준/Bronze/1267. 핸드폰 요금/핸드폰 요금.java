@@ -10,14 +10,11 @@ public class Main {
         int a = Integer.parseInt(r.readLine());
         String[] s = r.readLine().split(" ");
         int[] n = Arrays.stream(s).mapToInt(Integer::parseInt).toArray();
-
-        int yre = Arrays.stream(n)
-                .map(t -> (t / 30 + 1) * 10)
-                .sum();
-
-        int mre = Arrays.stream(n)
-                .map(t -> (t / 60 + 1) * 15)
-                .sum();
+        
+        // Y : t < 30s = 10
+        int yre = Arrays.stream(n).map(t -> (t / 30 + 1) * 10).sum();
+        // M : t < 60s = 15
+        int mre = Arrays.stream(n).map(t -> (t / 60 + 1) * 15).sum();
 
         if (yre < mre) {
             w.write("Y " + yre + "\n");
